@@ -2,16 +2,15 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "aws-level-checker"
+stack_name = "blog-appropriateness-checker"
 resolve_s3 = true
-s3_prefix = "alc"
-region = "us-east-1"
+s3_prefix = "blog-appropriateness-checker"
+region = "ap-northeast-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = [
-    "S3BucketName=${env:S3_BUCKET_NAME}",
-    "BedrockInferenceProfileArn=${env:BEDROCK_INFERENCE_PROFILE_ARN}",
-    "LangfuseHost=${env:LANGFUSE_HOST}",
-    "LangfuseSecretUrl=${env:LANGFUSE_SECRET_URL}",
-    "CognitoUserPoolId=${env:COGNITO_USER_POOL_ID}"
-]
+parameter_overrides = "Environment=\"dev\" PdfBucketName=\"bac-pdf-upload\" BedrockInferenceProfileArn=\"arn:aws:bedrock:ap-northeast-1:136068876741:inference-profile/apac.anthropic.claude-3-5-sonnet-20241022-v2:0\" LangfuseHost=\"https://cloud.langfuse.com\" LangfuseSecretName=\"bac-langfuse\" CognitoUserPoolId=\"ap-northeast-1_e13ePXUb0\""
+disable_rollback = true
+image_repositories = []
+
+[default.global.parameters]
+region = "ap-northeast-1"
