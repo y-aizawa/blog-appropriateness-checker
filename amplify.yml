@@ -5,6 +5,7 @@ applications:
       phases:
         preBuild:
           commands:
+            - cd frontend
             - npm ci
         build:
           commands:
@@ -15,4 +16,4 @@ applications:
           - '**/*'
       cache:
         paths:
-          - node_modules/**/*
+          - frontend/node_modules/**/*
