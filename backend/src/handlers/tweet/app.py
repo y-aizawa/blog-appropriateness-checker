@@ -86,7 +86,7 @@ def create_response(status_code: int, message: Dict[str, Any]) -> LambdaResponse
     return {
         "statusCode": status_code,
         "headers": {
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "https://main.dsxx6ef6apg8t.amplifyapp.com",
             "Access-Control-Allow-Headers": "Content-Type,Authorization",
             "Access-Control-Allow-Methods": "OPTIONS,POST",
             "Access-Control-Allow-Credentials": "true"

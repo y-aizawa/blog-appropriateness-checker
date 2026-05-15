@@ -38,7 +38,7 @@ Globals:
     # Lambdaレイヤーの設定
     Layers:
       - !Ref LangChainLayer
-      - arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:12
+      - arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:75
     # 環境変数の設定
     Environment:
       Variables:
