@@ -189,6 +189,7 @@ def generate_tweet(
     try:
         llm = ChatBedrockConverse(
             model=os.environ["BEDROCK_INFERENCE_PROFILE_ARN"],
+            provider="anthropic",
             max_tokens=BedrockConfig.MAX_TOKENS,
         )
         
