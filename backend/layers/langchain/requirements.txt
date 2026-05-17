@@ -1,4 +1,4 @@
-langchain
-langchain-core
-langchain-aws
-langfuse
+langchain<0.4
+langchain-core<0.4
+langchain-aws<0.3
+langfuse==2.60.9
