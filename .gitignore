@@ -1,21 +1,18 @@
-*.env
-*.env.local
-.codegpt
+# SAM build artifacts
+backend/.aws-sam/
 
-# Terraform
-**/.terraform/*
-*.tfstate
-*.tfstate.*
-*.tfvars
-crash.log
-crash.*.log
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
-.terraformrc
-terraform.rc
+# Lambda layer dependencies
+backend/layers/langchain/python/
 
-# SAM
-backend/env/*.json
-!backend/env/*.json.example
+# Python cache
+__pycache__/
+*.pyc
+
+# Node modules
+frontend/node_modules/
+
+# Frontend build artifacts
+frontend/dist/
+
+# macOS
+.DS_Store
