@@ -28,8 +28,11 @@ Parameters:
   CognitoUserPoolId:
     Type: String
     Description: 既存のCognito User Pool ID
+  FrontendOrigin:
+    Type: String
+    Description: Amplify Hosting のオリジンURL
 
-# 共通設定
+# 共通設定a
 Globals:
   Function:
     Runtime: python3.12
@@ -45,6 +48,7 @@ Globals:
         BEDROCK_INFERENCE_PROFILE_ARN: !Ref BedrockInferenceProfileArn
         LANGFUSE_HOST: !Ref LangfuseHost
         LANGFUSE_SECRET_NAME: !Ref LangfuseSecretName
+        FRONTEND_ORIGIN: !Ref FrontendOrigin
 
 Resources:
   # LangChainレイヤー
@@ -69,7 +73,7 @@ Resources:
       Cors:
         AllowMethods: "'OPTIONS,POST'"
         AllowHeaders: "'Content-Type,Authorization'"
-        AllowOrigin: "'https://main.dsxx6ef6apg8t.amplifyapp.com'"
+        AllowOrigin: !Sub "'${FrontendOrigin}'"
         AllowCredentials: "'true'"
       Auth:
         DefaultAuthorizer: CognitoAuthorizer

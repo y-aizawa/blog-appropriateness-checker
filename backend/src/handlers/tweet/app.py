@@ -58,7 +58,8 @@ REQUIRED_ENV_VARS: List[str] = [
     "LANGFUSE_SECRET_NAME",
     "BEDROCK_INFERENCE_PROFILE_ARN",
     "LANGFUSE_HOST",
-    "AWS_SESSION_TOKEN"
+    "AWS_SESSION_TOKEN",
+    "FRONTEND_ORIGIN"
 ]
 
 def validate_environment() -> None:
@@ -86,7 +87,7 @@ def create_response(status_code: int, message: Dict[str, Any]) -> LambdaResponse
     return {
         "statusCode": status_code,
         "headers": {
-            "Access-Control-Allow-Origin": "https://main.dsxx6ef6apg8t.amplifyapp.com",
+            "Access-Control-Allow-Origin": os.environ["FRONTEND_ORIGIN"],
             "Access-Control-Allow-Headers": "Content-Type,Authorization",
             "Access-Control-Allow-Methods": "OPTIONS,POST",
             "Access-Control-Allow-Credentials": "true"

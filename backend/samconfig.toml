@@ -5,10 +5,9 @@ version = 0.1
 stack_name = "blog-appropriateness-checker"
 resolve_s3 = true
 s3_prefix = "blog-appropriateness-checker"
-region = "ap-northeast-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = "Environment=\"dev\" PdfBucketName=\"bac-pdf-upload\" BedrockInferenceProfileArn=\"arn:aws:bedrock:ap-northeast-1:136068876741:inference-profile/jp.anthropic.claude-sonnet-4-6\" LangfuseHost=\"https://cloud.langfuse.com\" LangfuseSecretName=\"bac-langfuse\" CognitoUserPoolId=\"ap-northeast-1_e13ePXUb0\""
+parameter_overrides = "Environment=\"dev\" PdfBucketName=\"bac-pdf-upload\" BedrockInferenceProfileArn=\"arn:aws:bedrock:ap-northeast-1:136068876741:inference-profile/jp.anthropic.claude-sonnet-4-6\" LangfuseHost=\"https://cloud.langfuse.com\" LangfuseSecretName=\"bac-langfuse\" CognitoUserPoolId=\"ap-northeast-1_e13ePXUb0\" FrontendOrigin=\"https://main.dsxx6ef6apg8t.amplifyapp.com\""
 disable_rollback = true
 image_repositories = []
 

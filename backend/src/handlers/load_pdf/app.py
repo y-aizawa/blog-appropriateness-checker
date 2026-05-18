@@ -35,7 +35,8 @@ class HttpStatus:
 
 # 必要な環境変数のリスト
 REQUIRED_ENV_VARS = [
-    "PDF_BUCKET_NAME"
+    "PDF_BUCKET_NAME",
+    "FRONTEND_ORIGIN"
 ]
 
 def validate_environment() -> None:
@@ -63,7 +64,7 @@ def create_response(status_code: int, message: Dict[str, Any]) -> LambdaResponse
     return {
         "statusCode": status_code,
         "headers": {
-            "Access-Control-Allow-Origin": "https://main.dsxx6ef6apg8t.amplifyapp.com",
+            "Access-Control-Allow-Origin": os.environ["FRONTEND_ORIGIN"],
             "Access-Control-Allow-Headers": "Content-Type,Authorization",
             "Access-Control-Allow-Methods": "OPTIONS,POST",
             "Access-Control-Allow-Credentials": "true"
