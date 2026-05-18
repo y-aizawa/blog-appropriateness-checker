@@ -32,7 +32,7 @@ Parameters:
     Type: String
     Description: Amplify Hosting のオリジンURL
 
-# 共通設定a
+# 共通設定
 Globals:
   Function:
     Runtime: python3.12
