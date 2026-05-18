@@ -1,6 +1,9 @@
 # SAM build artifacts
 backend/.aws-sam/
 
+# SAM local config
+samconfig.toml
+
 # Lambda layer dependencies
 backend/layers/langchain/python/
 
