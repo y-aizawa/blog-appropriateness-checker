@@ -22,16 +22,6 @@ interface CheckResponse {
   langfuseSessionId: string;
 }
 
-interface TweetRequest {
-  evalResult: string;
-  userEmail: string | undefined;
-  langfuseSessionId: string;
-}
-
-interface TweetResponse {
-  message: string;
-}
-
 interface LoadUrlRequest {
   url: string;
   userEmail: string | undefined;
@@ -72,18 +62,6 @@ export class ApiService {
   ): Promise<CheckResponse> {
     return this.makeRequest<CheckResponse>(
       `${config.apiEndpoint}/evaluate`,
-      'POST',
-      idToken,
-      params
-    );
-  }
-
-  static async generateTweet(
-    params: TweetRequest,
-    idToken: string
-  ): Promise<TweetResponse> {
-    return this.makeRequest<TweetResponse>(
-      `${config.apiEndpoint}/tweet`,
       'POST',
       idToken,
       params

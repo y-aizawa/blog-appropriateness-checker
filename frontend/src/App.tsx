@@ -4,7 +4,6 @@ import { Textarea } from "./components/ui/textarea"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs"
 import { Progress } from "./components/ui/progress"
 import { FeedbackButtons } from "./components/FeedbackButtons"
-import { ShareButton } from "./components/ShareButton"
 import { ApiService } from "./services/api"
 import { useCustomAuth } from "./hooks/useAuth"
 import { useState } from 'react';
@@ -28,33 +27,8 @@ function App() {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
   const [traceId, setTraceId] = useState('');
-  const [langfuseSessionId, setLangfuseSessionId] = useState<string>('');
-  const [tweetProgress, setTweetProgress] = useState(0);
-  const [isTweetLoading, setIsTweetLoading] = useState(false);
 
   const auth = useCustomAuth();
-
-  const startTweetProgress = () => {
-    setTweetProgress(0);
-    setIsTweetLoading(true);
-
-    // プログレスバーを95%まで10秒かけて進める
-    const interval = setInterval(() => {
-      setTweetProgress(prev => {
-        if (prev >= 95) {
-          clearInterval(interval);
-          return 95;
-        }
-        return prev + 1;
-      });
-    }, 100); // 10秒で100%まで進むように100msごとに1%進める
-    return interval;
-  };
-
-  const stopTweetProgress = () => {
-    setTweetProgress(100);
-    setIsTweetLoading(false);
-  };
 
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -182,7 +156,6 @@ function App() {
       
       setResponse(data.message);
       setTraceId(data.traceId);
-      setLangfuseSessionId(data.langfuseSessionId);
     } catch (error) {
       if (error instanceof AppError || error instanceof Error) {
         setError(error.message);
@@ -354,20 +327,8 @@ function App() {
                 </CardContent>
                 <div className="p-4">
                   <div className="flex gap-2">
-                    <ShareButton
-                      response={response}
-                      userEmail={auth.user?.profile?.email}
-                      langfuseSessionId={langfuseSessionId}
-                      idToken={auth.user?.id_token || ''}
-                      onError={setError}
-                      onLoadingStart={startTweetProgress}
-                      onLoadingEnd={stopTweetProgress}
-                    />
                     <FeedbackButtons traceId={traceId} />
                   </div>
-                  {isTweetLoading && (
-                    <Progress value={tweetProgress} className="w-full mt-4" />
-                  )}
                 </div>
               </Card>
             )}
