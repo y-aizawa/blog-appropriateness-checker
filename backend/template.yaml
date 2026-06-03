@@ -126,6 +126,8 @@ Resources:
       CodeUri: src/handlers/evaluate/
       Handler: app.lambda_handler
       Description: ユーザーのAWSアウトプットをレベル判定するLambda関数
+      MemorySize: 512
+      Timeout: 29
       Policies:
         - AWSLambdaBasicExecutionRole
         - Version: '2012-10-17'

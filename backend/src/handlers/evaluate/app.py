@@ -56,7 +56,7 @@ class LangfuseConfig:
 
 class BedrockConfig:
     """Bedrock関連の設定定数"""
-    MAX_TOKENS = 4096
+    MAX_TOKENS = 2048
 
 # 必要な環境変数のリスト
 REQUIRED_ENV_VARS: List[str] = [
