@@ -30,5 +30,5 @@ variable "existing_cognito_client_id" {
 variable "document_bucket_name" {
   description = "PDFドキュメントを保存するS3バケット名"
   type        = string
-  default     = "alc-uploaded-pdf"  # SAMテンプレートのデフォルト値と同じ
+  default     = "bac-uploaded-pdf"  # SAMテンプレートのデフォルト値と同じ
 }

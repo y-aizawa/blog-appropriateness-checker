@@ -15,7 +15,7 @@ Parameters:
       - prd
   PdfBucketName:
     Type: String
-    Description: PDFファイルを保存するS3バケット名（Terraformで作成したalc-dev-uploaded-pdf）
+    Description: PDFファイルを保存するS3バケット名（Terraformで作成したbac-dev-uploaded-pdf）
   BedrockInferenceProfileArn:
     Type: String
     Description: Bedrock推論プロファイルのARN
@@ -55,7 +55,7 @@ Resources:
   LangChainLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
-      LayerName: !Sub 'alc-${Environment}-langchain'
+      LayerName: !Sub 'bac-${Environment}-langchain'
       Description: Layer for LangChain and related libraries
       ContentUri: layers/langchain/
       CompatibleRuntimes:
@@ -66,7 +66,7 @@ Resources:
   ApiGateway:
     Type: AWS::Serverless::Api
     Properties:
-      Name: !Sub 'alc-api-${Environment}-v3'
+      Name: !Sub 'bac-api-${Environment}-v3'
       StageName: !Ref Environment
       EndpointConfiguration:
         Type: REGIONAL
